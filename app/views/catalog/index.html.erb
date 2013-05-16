@@ -1,0 +1,9 @@
+<div id="cat_menu">
+	<h2>Категория</h2>
+	<%= render 'category' %>
+</div>
+<div id="catalog_inner">
+	<h2><%= @cat_name unless @cat_name == "All" %></h2>
+	<h2><%= "Последние поступления" if @cat_name == "All" %></h2>
+	<%= render 'item' %>
+</div>

@@ -1,0 +1,51 @@
+<div class="box-header"><h1>Контакты</h1></div>
+<% if notice %><p class="warning"><%= notice %></p><% end %>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Телефон 1</strong></td>
+      <td><%= @contact.phone1 %></td>
+    </tr>
+    <tr>
+      <td><strong>Телефон 2</strong></td>
+      <td><%= @contact.phone2 %></td>
+    </tr>
+    <tr>
+      <td><strong>E-mail 1</strong></td>
+      <td><%= @contact.email1 %></td>
+    </tr>
+    <tr>
+      <td><strong>E-mail 2</strong></td>
+      <td><%= @contact.email2 %></td>
+    </tr>
+    <tr>
+      <td><strong>Url 1</strong></td>
+      <td><%= @contact.url1 %></td>
+    </tr>
+    <tr>
+      <td><strong>Url 2</strong></td>
+      <td><%= @contact.url2 %></td>
+    </tr>
+    <tr>
+      <td><strong>Url 3</strong></td>
+      <td><%= @contact.url3 %></td>
+    </tr>
+    <tr>
+      <td><strong>Skype</strong></td>
+      <td><%= @contact.skype %></td>
+    </tr>
+    <tr>
+      <td><strong>Имя</strong></td>
+      <td><%= @contact.name %></td>
+    </tr>
+    <tr>
+      <td><strong>О нас</strong></td>
+      <td><%= @contact.aboutus %></td>
+    </tr>
+  </tbody>
+</table>
+<div class="action_bar">
+<%= link_to 'Редактировать', edit_contact_path(@contact), class: "button" %>
+<%= link_to 'Назад', contacts_path %>
+</div>

@@ -1,0 +1,17 @@
+<h2>Написать</h2>
+
+<% if !@contacts.email1.empty? || !@contacts.email2.empty? %>
+<p>
+	<strong>E-mail:</strong><br>
+	<%= @contacts.email1 unless @contacts.email1.empty? %>
+	<br>
+	<%= @contacts.email2 unless @contacts.email2.empty? %>
+</p>
+<% end %>
+
+<% unless @contacts.skype.empty? %>
+<p>
+	<strong>Skype: </strong>
+	<%= @contacts.skype %>
+</p>
+<% end %>

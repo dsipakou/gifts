@@ -1,0 +1,22 @@
+<div class="box-header"><h1>Просмотр новости</h1></div>
+<% if notice %><p class="warning"><%= notice %></p><% end %>
+<table>
+	<tbody>
+		<tr>
+			<td><strong>Текст новости</strong></td>
+			<td><%= @news.content %></td>
+		</tr>
+		<tr>
+			<td><strong>Дата</strong></td>
+			<td><%= @news.date %></td>
+		</tr>
+		<tr>
+			<td><strong>Основная новость?</strong></td>
+			<td><%= image_tag "plus.png" if @news.main %></td>
+		</tr>
+	</tbody>
+</table>
+<div class="action_bar">
+	<%= link_to 'Редактировать', edit_news_path(@news), class: "button" %>
+	<%= link_to 'Назад', news_index_path %>
+</div>

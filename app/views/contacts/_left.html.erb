@@ -1,0 +1,13 @@
+<h2>Позвонить</h2>
+
+<% unless @contacts.phone1.empty? %>
+<p><strong>МТС: </strong>
+<%= @contacts.phone1 %>
+</p>
+<% end %>
+
+<% unless @contacts.phone2.empty? %>
+<p><strong>Velcom: </strong>
+<%= @contacts.phone2 %>
+</p>
+<% end %>

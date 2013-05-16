@@ -1,0 +1,46 @@
+<div class="box-header"><h1>Список товаров</h1></div>
+<div class="dataTables_wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Категория <br>
+                    <%= select_tag "categories", options_for_select(categories << "Все") %></th>
+                <th>Цена</th>
+                <th>Картинка 1</th>
+                <th>Картинка 2</th>
+                <th>Картинка 3</th>
+                <th>Заголовок</th>
+                <th>Описание</th>
+                <th>В наличии</th>
+                <th>На главную</th>
+                <th colspan="3">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @items.each do |item| %>
+                <tr>
+                    <td><%= category(item.category_id) %></td>
+                    <td><%= item.price %></td>
+                    <td><%= image_tag item.picture1.url(:small) unless item.picture1.url.include? "missing.png" %></td>
+                    <td><%= image_tag item.picture2.url(:small) unless item.picture2.url.include? "missing.png"%></td>
+                    <td><%= image_tag item.picture3.url(:small) unless item.picture3.url.include? "missing.png"%></td>
+                    <td><%= item.title %></td>
+                    <td><%= item.desc %></td>
+                    <td><%= image_tag "plus.png" if item.availability %></td>
+                    <td><%= image_tag "plus.png" if item.showonmain %></td>
+                    <td style="border-right: 0;"><%= link_to (image_tag "actions-open.png"), item %>
+                    <%= link_to (image_tag "actions-edit.png"), edit_item_path(item) %>
+                    <%= link_to (image_tag "actions-delete.png"), item, method: :delete, data: { confirm: 'Ололошки, точно удалить?' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div class="action_bar nomargin">
+        <%= link_to 'Новый товар', new_item_path, class: "button small" %>
+        <div class="dataTables_info"><%= items_on_the_page_label(@count) %> из <%= @count %></div>
+        <div class="dataTables_paginate paging_full_numbers"><%= paginate @items %></div>
+    </div>
+</div>
+
+
+</div>

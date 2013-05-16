@@ -1,0 +1,33 @@
+<table>
+	<tr align="center">
+		<td>
+			<div id="thumbs">
+				<%= link_to (image_tag @item.picture1.url(:medium), class: "rounded"), @item.picture1.url(:big), id: "picture1" %>
+				<%= link_to (image_tag @item.picture2.url(:medium), class: "rounded"), @item.picture2.url(:big), style: 'display: none;' unless @item.picture2.url.include? "missing.png"%>
+				<%= link_to (image_tag @item.picture3.url(:medium), class: "rounded"), @item.picture3.url(:big), style: 'display: none;' unless @item.picture3.url.include? "missing.png" %>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="thumbs_small">
+				<%= image_tag @item.picture1.url(:small), class: "small-rounded" unless @item.picture1.url.include? "missing.png" %>
+				<%= image_tag @item.picture2.url(:small), class: "small-rounded" unless @item.picture2.url.include? "missing.png" %>
+				<%= image_tag @item.picture3.url(:small), class: "small-rounded" unless @item.picture3.url.include? "missing.png" %>
+			</div>
+		</td>
+	</tr>
+</table>
+<script>
+	$('#thumbs a').touchTouch();
+	$(document).ready(function() {
+    	$images = $("#thumbs a");
+    	$images.hide().first().show();
+    	$small_images = $('#thumbs_small img');
+    	$small_images.on('mouseover', function(e) {
+        	$small_images.each(function(index) {
+            	if (this == e.currentTarget) $images.hide().eq(index).show();
+        	});
+    	});
+	});
+</script>

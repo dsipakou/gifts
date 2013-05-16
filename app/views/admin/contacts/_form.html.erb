@@ -1,0 +1,51 @@
+<%= form_for(@contact) do |f| %>
+  <div class="column-left">
+    <% if @contact.errors.any? %>
+      <p class="warning">
+        <%= pluralize(@contact.errors.count, "error") %> prohibited this item from being saved:
+
+        <% @contact.errors.full_messages.each do |msg| %>
+          <p class="warning"><%= msg %></p>
+        <% end %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= f.text_field :phone1, placeholder: "Телефон 1" %>
+    </p>
+    <p>
+      <%= f.text_field :phone2, placeholder: "Телефон 2" %>
+    </p>
+    <p>
+      <%= f.text_field :email1, placeholder: "E-mail 1" %>
+    </p>
+    <p>
+      <%= f.text_field :email2, placeholder: "E-mail 2" %>
+    </p>
+    <p>
+      <%= f.text_field :url1, placeholder: "URL 1" %>
+    </p>
+    <p>
+      <%= f.text_field :url2, placeholder: "URL 2" %>
+    </p>
+    <p>
+      <%= f.text_field :url3, placeholder: "URL 3" %>
+    </p>
+    <p>
+      <%= f.text_field :skype, placeholder: "Skype" %>
+    </p>
+    <p>
+      <%= f.text_field :name, placeholder: "Имя" %>
+    </p>
+  </div>
+  <div class="column-right">
+    <p>
+      <%= f.text_area :aboutus, placeholder: "О нас" %>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <div class="action_bar">
+    <%= f.submit "Сохранить", class: "button blue" %>
+    <%= link_to 'Назад', contacts_path %>
+  </div>
+<% end %>

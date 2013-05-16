@@ -1,0 +1,19 @@
+<div class="box-header"><h1>Просмотр категории</h1></div>
+<% if notice %><p class="warning"><%= notice %></p><% end %>
+<table>
+	<tbody>
+		<tr>
+			<td><strong>Название</strong></td>
+			<td><%= @category.name %></td>
+		</tr>
+		<tr>
+			<td><strong>Описание</strong></td>
+			<td><%= @category.desc %></td>
+		</tr>
+	</tbody>
+</table>
+<div class="action_bar">
+
+	<%= link_to 'Редактировать', edit_category_path(@category), class: "button" %>
+	<%= link_to 'Назад', categories_path %>
+</div>

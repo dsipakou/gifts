@@ -1,0 +1,23 @@
+<script>
+	$(document).ready(function() {
+		$divs = $('#content #cat_item')
+		$divs.on('mouseover', function(e) {
+			$(this).addClass("item_border");
+			$(this).find(".moredetails").show();
+		});
+		$divs.on('mouseout', function(e) {
+			$(this).removeClass("item_border");
+			$(this).find('.moredetails').hide();
+		})
+	});
+</script>
+<div>
+	<% @items.each_with_index do |item, index| %>
+	<div id="cat_item">
+		<div class="image"><%= link_to (image_tag item.picture1.url(:catalog), class: "image round"), "#{catalog_path}/item/#{item.id}" %></div>
+		<div class="desc"><% if item.title && !item.title.empty? %><%= item.title %><% end %></div>
+		<div class="price"><%= item.price %> руб.</div>
+		<div class="moredetails"><%= link_to "Детали >>", "#{catalog_path}/item/#{item.id}" %></div>
+	</div>
+	<% end %>
+</div>

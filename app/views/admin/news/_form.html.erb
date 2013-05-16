@@ -1,0 +1,33 @@
+<%= form_for(@news) do |f| %>
+  <div class="column-left">
+    <% if @news.errors.any? %>
+      <p class="warning">
+        <%= pluralize(@news.errors.count, "error") %> prohibited this item from being saved:
+
+        <% @news.errors.full_messages.each do |msg| %>
+          <p class="warning"><%= msg %></p>
+        <% end %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= f.text_area :content, placeholder: "Текст новости" %>
+    </p>
+  </div>
+  <div class="column-right">
+    <p>
+      <%= f.text_field :date, placeholder: "Дата" %>
+    </p>
+    <% unless if_main_exists(@news.main) %>
+      <p>
+        <%= f.check_box :main %>
+        <%= f.label :main, "Основная новость?" %>
+      </p>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+  <div class="action_bar">
+    <%= f.submit "Сохранить", class: "button blue" %>
+    <%= link_to 'Назад', news_index_path %>
+  </div>
+<% end %>

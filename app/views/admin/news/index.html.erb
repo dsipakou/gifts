@@ -1,0 +1,28 @@
+<div class="box-header"><h1>Список новостей</h1></div>
+<div class="dataTables_wrapper">
+  <table class="admin">
+    <thead>
+      <tr>
+        <th>Текст новости</th>
+        <th>Дата</th>
+        <th>Основная новость?</th>
+        <th colspan=3></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @news.each do |news| %>
+        <tr>
+          <td class="odd left"><%= news.content %></td>
+          <td><%= news.date %></td>
+          <td class="odd"><%= image_tag "plus.png" if news.main %></td>
+          <td><%= link_to (image_tag "actions-open.png"), news %></td>
+          <td><%= link_to (image_tag "actions-edit.png"), edit_news_path(news) %></td>
+          <td><%= link_to (image_tag "actions-delete.png"), news, method: :delete, data: { confirm: 'Ололошки, точно удалить?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="action_bar nomargin"><%= link_to 'Новая новость', new_news_path, class: "button small" %></div>
+
+

@@ -1,0 +1,27 @@
+<%= form_for(@category) do |f| %>
+  <div class="column-left">
+    <% if @category.errors.any? %>
+      <p class="warning">
+        <%= pluralize(@category.errors.count, "error") %> prohibited this item from being saved:
+
+        <% @category.errors.full_messages.each do |msg| %>
+          <p class="warning"><%= msg %></p>
+        <% end %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= f.text_field :name, placeholder: "Название" %>
+    </p>
+  </div>
+  <div class="column-right">
+    <p>
+      <%= f.text_area :desc, placeholder: "Описание категории" %>
+    </p>
+  </div>
+  <div class="clear"></div>
+  <div class="action_bar">
+    <%= f.submit "Сохранить", class: "button blue" %>
+    <%= link_to 'Назад', categories_path %>
+  </div>
+<% end %>

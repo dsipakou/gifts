@@ -1,0 +1,19 @@
+<div>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	<table>
+		<tr>
+			<td><%= f.text_field :username, placeholder: "Имя пользователя", autofocus: true %></td>
+		</tr>
+		<tr>
+			<td><%= f.password_field :password, placeholder: "Пароль" %></td>
+		</tr>
+		<tr>
+			<td><%= f.password_field :password_confirmation, placeholder: "Повтор пароля" %></td>
+		</tr>
+		<tr>
+			<td><%= f.submit "Регистрация", name: "submit", class: "button blue" %>
+			<%= link_to "Вход", admin_path %></td>
+		</tr>
+	</table>
+	<% end %>
+</div>

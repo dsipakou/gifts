@@ -1,0 +1,40 @@
+<div class="box-header"><h1>Контакты</h1></div>
+<div class="dataTables_wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th class="odd">Телефон 1</th>
+                <th>Телефон 2</th>
+                <th class="odd">E-mail 1</th>
+                <th>E-mail 2</th>
+                <th class="odd">Url 1</th>
+                <th>Url 2</th>
+                <th class="odd">Url 3</th>
+                <th>Skype</th>
+                <th class="odd">Имя</th>
+                <th>О нас</th>
+                <th colspan=3></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @contacts.each do |contact| %>
+                <tr>
+                    <td class="odd"><%= contact.phone1 %></td>
+                    <td><%= contact.phone2 %></td>
+                    <td class="odd"><%= contact.email1 %></td>
+                    <td><%= contact.email2 %></td>
+                    <td class="odd"><%= contact.url1 %></td>
+                    <td><%= contact.url2 %></td>
+                    <td class="odd"><%= contact.url3 %></td>
+                    <td><%= contact.skype %></td>
+                    <td class="odd"><%= contact.name %></td>
+                    <td><%= contact.aboutus %></td>
+                    <td class="odd" style="border-right: 0;"><%= link_to (image_tag "actions-open.png"), contact %></td>
+                    <td class="odd" style="border-right: 0;"><%= link_to (image_tag "actions-edit.png"), edit_contact_path(contact) %></td>
+                    <td class="odd"><%= link_to (image_tag "actions-delete.png"), contact, method: :delete, data: { confirm: 'Ололошки, точно удалить?' } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div class="action_bar nomargin"><%= link_to 'Новый контакт', new_contact_path, class: "button small" if @contacts.empty? %></div>
+</div>

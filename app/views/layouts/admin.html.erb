@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Админочка!!!!</title>
+	<%= javascript_include_tag "application" %>
+	<%= stylesheet_link_tag 'reset.css' %>
+	<%= stylesheet_link_tag 'admin.css' %>
+</head>
+<body>
+	<nav id="primary">
+		<%= render 'index/admin_userbar' %>
+	</nav>
+	<nav id="secondary">
+		<%= render 'index/admin_navi' %>
+	</nav>
+	<section id="maincontainer">
+		<div id="main" class="container_12">
+			<div class="box"><%= yield %></div>
+		</div>
+	</section>
+</body>
+</html>

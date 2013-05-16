@@ -1,0 +1,64 @@
+<%= form_for (@item), html: {multipart: true} do |f| %>
+  <div class="column-left">
+    <% if @item.errors.any? %>
+      <p class="warning">
+        <%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:
+
+        <% @item.errors.full_messages.each do |msg| %>
+          <p class="warning"><%= msg %></p>
+        <% end %>
+      </p>
+    <% end %>
+    <% if categories.empty? %>
+      <p class="warning">Сначала нужно добавить категорию</p>
+    <% else %>
+      <p>
+        <%= f.label :category_id, "Категория" %><br />
+        <%= f.select :category_id, options_for_select(categories, @item.category_id) %>
+      </p>
+      <p>
+        <%= f.number_field :price, placeholder: "Цена", type: "text" %>
+      </p>
+      <p>
+        <%= f.file_field :picture1 %>
+        <%= f.label :picture1, "Картинка 1" %>
+        <%= image_tag @item.picture1.url(:small) unless @item.picture1.url.include? "missing.png" %>
+      </p>
+      <p>
+        <%= f.file_field :picture2 %>
+        <%= f.label :picture2, "Картинка 2" %>
+        <%= image_tag @item.picture2.url(:small) unless @item.picture2.url.include? "missing.png" %>
+     </p>
+      <p>
+        <%= f.file_field :picture3 %>
+        <%= f.label :picture3, "Картинка 3" %>
+        <%= image_tag @item.picture3.url(:small) unless @item.picture3.url.include? "missing.png" %>
+      </p>
+
+    <% end %>
+
+  </div>
+  <div class="column-right">
+    <% unless categories.empty? %>
+      <p>
+        <%= f.text_field :title, placeholder: "Заголовок" %>
+      </p>
+      <p>
+        <%= f.text_area :desc, id: "textarea", placeholder: "Описание" %>
+      </p>
+      <p>
+        <%= f.check_box :availability %>
+        <%= f.label :availability, "Есть в наличии", for: :availability %>
+      </p>
+      <p>
+        <%= f.check_box :showonmain %>
+        <%= f.label :showonmain, "Показать на главной", for: :showonmain %>
+      </p>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+  <div class="action_bar">
+    <%= f.submit "Сохранить", class: "button blue" unless categories.empty? %>
+    <%= link_to 'Назад', items_path%>
+  </div>
+<% end %>
