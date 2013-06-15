@@ -31,4 +31,8 @@ class Item < ActiveRecord::Base
 		Item.where("showonmain = true")
 	end
 
+	def self.desc_order
+		Item.order("id DESC")
+	end
+
 end

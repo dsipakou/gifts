@@ -8,7 +8,7 @@ class Admin::ItemsController < ApplicationController
   # GET /admin/items.json
   def index
     #@items = Item.all
-    @items = Kaminari.paginate_array(Item.all).page(params[:page]).per(5)
+    @items = Kaminari.paginate_array(Item.desc_order).page(params[:page]).per(5)
     @count = Item.count
 
     respond_to do |format|

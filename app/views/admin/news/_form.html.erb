@@ -16,7 +16,7 @@
   </div>
   <div class="column-right">
     <p>
-      <%= f.text_field :date, placeholder: "Дата" %>
+      <%= f.text_field :date, placeholder: "Дата", id: "datepicker" %>
     </p>
     <% unless if_main_exists(@news.main) %>
       <p>

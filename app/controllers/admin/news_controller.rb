@@ -5,7 +5,8 @@ class Admin::NewsController < ApplicationController
   # GET /admin/news
   # GET /admin/news.json
   def index
-    @news = News.all
+    @news = Kaminari.paginate_array(News.desc_sort).page(params[:page]).per(10)
+    @count = News.count
 
     respond_to do |format|
       format.html # index.html.erb

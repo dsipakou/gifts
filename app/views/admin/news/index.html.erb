@@ -23,6 +23,10 @@
     </tbody>
   </table>
 </div>
-<div class="action_bar nomargin"><%= link_to 'Новая новость', new_news_path, class: "button small" %></div>
+<div class="action_bar nomargin">
+  <%= link_to 'Новая новость', new_news_path, class: "button small" %>
+  <div class="dataTables_info"><%= items_on_the_page_label(@count) %> из <%= @count %></div>
+  <div class="dataTables_paginate paging_full_numbers"><%= paginate @news %></div>
+</div>
 
 
