@@ -1,8 +1,21 @@
+require 'paperclip_processors/watermark'
 class Item < ActiveRecord::Base
+
 	attr_accessible :availability, :category_id, :picture1, :picture2, :picture3, :price, :title, :desc, :showonmain
 
 	has_attached_file :picture1,
-					styles: {big: '500x500>', index: "450x230#", medium: "300x300#", catalog: "200x200#", small: "100x100#"},
+					processors: [:watermark],
+					styles: {
+						big: {
+							geometry: "500x500>",
+							watermark_path: ":rails_root/public/assets/images/watermark.png",
+							position: "center",
+							},
+						index: "450x230#",
+						medium: "300x300#",
+						catalog: "200x200#",
+						small: "100x100#",
+						},
 					url: "/assets/products/:id/:style/:basename.:extension",
 					path: ":rails_root/public/assets/products/:id/:style/:basename.:extension",
 					default_url: "/assets/products/missing.png"

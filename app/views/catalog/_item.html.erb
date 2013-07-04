@@ -16,7 +16,7 @@
 	<div id="cat_item">
 		<div class="image"><%= link_to (image_tag item.picture1.url(:catalog), class: "image round"), "#{catalog_path}/item/#{item.id}" %></div>
 		<div class="desc"><% if item.title && !item.title.empty? %><%= item.title %><% end %></div>
-		<div class="price"><%= item.price %> руб.</div>
+		<div class="price"><% if item.price %><%= item.price %> руб.<% end %></div>
 		<div class="moredetails"><%= link_to "Детали >>", "#{catalog_path}/item/#{item.id}" %></div>
 	</div>
 	<% end %>

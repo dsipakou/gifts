@@ -2,13 +2,12 @@
 	<ul>
 		<li><span class="list">Привет, <%= current_user.username %></span></li>
 		<li class="bottom">
-			<a href="/admin/logout">
-				<span class="glyph quit"></span>
-				Выход
-			</a>
+			<%= link_to "Sign out", destroy_user_session_path %>
+			<br>
+			<br>
 		</li>
 	</ul>
 
 <% else %>
-	А нука сука залогинься
+	А нука-ка залогинься
 <% end %>

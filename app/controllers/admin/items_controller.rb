@@ -1,5 +1,5 @@
 require 'kaminari'
-
+require 'paperclip_processors/watermark'
 class Admin::ItemsController < ApplicationController
   before_filter :authenticate_user!
 
