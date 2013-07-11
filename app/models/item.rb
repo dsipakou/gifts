@@ -1,4 +1,3 @@
-require 'paperclip_processors/watermark'
 class Item < ActiveRecord::Base
 
 	attr_accessible :availability, :category_id, :picture1, :picture2, :picture3, :price, :title, :desc, :showonmain
