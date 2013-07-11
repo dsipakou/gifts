@@ -4,7 +4,6 @@ class Item < ActiveRecord::Base
 	attr_accessible :availability, :category_id, :picture1, :picture2, :picture3, :price, :title, :desc, :showonmain
 
 	has_attached_file :picture1,
-					processors: [:watermark],
 					styles: {
 						big: "500x500>",
 						index: "450x230#",
