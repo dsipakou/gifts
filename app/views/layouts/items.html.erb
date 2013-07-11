@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Подарочки!!!!</title>
+		<%= javascript_include_tag "touchTouch.jquery.js" %>
+		<%= javascript_include_tag "jquery-1.7.min.js" %>
+		<%= javascript_include_tag "jquery.featureCarousel.js" %>
+		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag 'index.css.scss' %>
+		<%= stylesheet_link_tag 'touchTouch.css' %>
+		<%= stylesheet_link_tag 'feature-carousel.css' %>
+		<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic" %>
+		<script type="text/javascript" src="http://vk.com/js/api/share.js?11" charset="windows-1251"></script>
+
+
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?97"></script>
+
+		<script type="text/javascript">
+  			VK.init({apiId: 3759229, onlyWidgets: true});
+		</script>
+	</head>
+<body>
+
+
+	<div class="top">
+		<div id="header"><%= render 'index/header' %></div>
+		<div id="menu"><%= render 'index/navi' %></div>
+		<div id="content"><%= yield %></div>
+		<div id="footer"><%= render 'index/footer' %></div>
+	</div>
+</body>
+</html>

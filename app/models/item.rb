@@ -6,11 +6,7 @@ class Item < ActiveRecord::Base
 	has_attached_file :picture1,
 					processors: [:watermark],
 					styles: {
-						big: {
-							geometry: "500x500>",
-							watermark_path: ":rails_root/public/assets/images/watermark.png",
-							position: "center",
-							},
+						big: "500x500>",
 						index: "450x230#",
 						medium: "300x300#",
 						catalog: "200x200#",

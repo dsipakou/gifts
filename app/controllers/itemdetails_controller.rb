@@ -1,5 +1,5 @@
 class ItemdetailsController < ApplicationController
-	layout 'main'
+	layout 'items'
 
 	def index
 		@item = Item.find(params[:id])

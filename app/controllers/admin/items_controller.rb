@@ -1,5 +1,7 @@
 require 'kaminari'
 require 'paperclip_processors/watermark'
+require 'fileutils'
+
 class Admin::ItemsController < ApplicationController
   before_filter :authenticate_user!
 
@@ -32,7 +34,6 @@ class Admin::ItemsController < ApplicationController
   # GET /admin/items/new.json
   def new
     @item = Item.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @item }
@@ -81,6 +82,8 @@ class Admin::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
+
+    FileUtils.rm_rf(Dir.glob("public/assets/products/" + params[:id] + "/*"))
 
     respond_to do |format|
       format.html { redirect_to items_url }

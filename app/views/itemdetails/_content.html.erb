@@ -1,10 +1,10 @@
 <h2><%= @item.title %></h2>
 <div class="item-desc"><%= @item.desc %></div>
 
-<div class="item-price"><%= @item.price %> руб.</div>
+<div class="item-price"><% unless @item.price.nil? %><%= @item.price %> руб.<% end %></div>
 <div class="item-share">
 	<!-- VK.COM START -->
-<script type="text/javascript">
+	<script type="text/javascript">
 	<!--
 	document.write(VK.Share.button({
 	  url: '<%= request.url %>',
@@ -20,6 +20,5 @@
 	-->
 	</script>
 	<!-- VK.COM END -->
-
 </div>
 
