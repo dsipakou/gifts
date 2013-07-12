@@ -1,5 +1,4 @@
 require 'kaminari'
-require 'paperclip_processors/watermark'
 require 'fileutils'
 
 class Admin::ItemsController < ApplicationController
