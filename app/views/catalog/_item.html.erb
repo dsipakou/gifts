@@ -11,7 +11,7 @@
 		})
 	});
 </script>
-<div>
+<div style="overflow: hidden;">
 	<% @items.each_with_index do |item, index| %>
 	<div id="cat_item">
 		<div class="image"><%= link_to (image_tag item.picture1.url(:catalog), class: "image round"), "#{catalog_path}/item/#{item.id}" %></div>

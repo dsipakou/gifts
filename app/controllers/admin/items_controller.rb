@@ -1,5 +1,6 @@
 require 'kaminari'
 require 'fileutils'
+#require 'RMagick'
 
 class Admin::ItemsController < ApplicationController
   before_filter :authenticate_user!

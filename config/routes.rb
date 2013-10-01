@@ -1,13 +1,13 @@
 Gifts::Application.routes.draw do
 
-  devise_for :users do
-  	get "admin/login", to: "devise/sessions#new", as: :login
-  	get "admin/logout", to: "devise/sessions#destroy", as: :logout
-  end
+	devise_for :users do
+	  	get "admin/login", to: "devise/sessions#new", as: :login
+	  	get "admin/logout", to: "devise/sessions#destroy", as: :logout
+	end
 
-  get "contacts/index"
+  	get "contacts/index"
 
-  get "about/index"
+  	get "about/index"
 
 	get "itemdetails/index"
 	get "catalog/index"
@@ -18,6 +18,7 @@ Gifts::Application.routes.draw do
 		resources :items, path: 'admin/items'
 		resources :categories, path: 'admin/categories'
 		resources :contacts, path: 'admin/contacts'
+		resources :friends, path: 'admin/friends'
 	end
 
 	root to: 'index#content', as: :main

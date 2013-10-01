@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Мастерская "Н"</title>
+		<%= javascript_include_tag "touchTouch.jquery.js" %>
+		<%= javascript_include_tag "jquery-1.7.min.js" %>
+		<%= javascript_include_tag "jquery.featureCarousel.js" %>
+		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag 'index.css.scss' %>
+		<%= stylesheet_link_tag 'touchTouch.css' %>
+		<%= stylesheet_link_tag 'feature-carousel.css' %>
+		<%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic" %>
+
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+
+		<script type="text/javascript">
+  			VK.init({apiId: 3832613, onlyWidgets: true});
+		</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-43297503-1', 'studio-n.by');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+<body>
+		<!--[if IE]>
+			<b>К сожалению, сайт не оптимизирован для работы с Internet Explorer</b>
+		<![endif]-->
+	<div id="container-inner">
+		<div id="left-bg"></div>
+		<div id="left-bg-border"></div>
+		<div id="center-panel">
+			<div class="top">
+				<div id="header"><%= render 'index/header' %></div>
+				<div id="menu"><%= render 'index/navi' %></div>
+				<div id="content"><%= yield %></div>
+				<div id="footer"><%= render 'index/footer' %></div>
+			</div>
+		</div>
+		<div id="right-bg"></div>
+		<div id="right-bg-border"></div>
+	</div>
+</body>
+</html>

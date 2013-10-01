@@ -15,7 +15,7 @@
     <% else %>
       <p>
         <%= f.label :category_id, "Категория" %><br />
-        <%= f.select :category_id, options_for_select(categories, @item.category_id) %>
+        <%= f.select :category_id, Category.get_subcategories.collect {|c| [c.name, c.id]} %>
       </p>
       <p>
         <%= f.number_field :price, placeholder: "Цена", type: "text" %>
@@ -42,7 +42,13 @@
   <div class="column-right">
     <% unless categories.empty? %>
       <p>
-        <%= f.text_field :title, placeholder: "Заголовок" %>
+        <%= f.text_field :article, placeholder: "Артикул" %>
+      </p>
+      <p>
+        <%= f.text_field :similar_to, placeholder: "Похожий товар" %>
+      </p>
+      <p>
+        <%= f.text_field :title, placeholder: "Название" %>
       </p>
       <p>
         <%= f.text_area :desc, id: "textarea", placeholder: "Описание" %>

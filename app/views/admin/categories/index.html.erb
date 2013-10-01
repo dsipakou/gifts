@@ -5,6 +5,7 @@
       <tr>
         <th>Название</th>
         <th>Описание</th>
+        <th>Главная категория</th>
         <th colspan=3></th>
       </tr>
     </thead>
@@ -14,9 +15,10 @@
         <tr>
           <td class="odd left"><%= category.name %></td>
           <td><%= category.desc %></td>
-          <td class="odd" style="border-right: 0;"><%= link_to (image_tag "actions-open.png"), category %></td>
-          <td class="odd" style="border-right: 0;"><%= link_to (image_tag "actions-edit.png"), edit_category_path(category) %></td>
-          <td class="odd"><%= link_to (image_tag "actions-delete.png"), category, method: :delete, data: { confirm: 'Ололошки, точно удалить? Удаляться и все товары, которые завязаны на эту категорию. Точно?' } %></td>
+          <td class="odd"><%= subcat_name(category.subcategory) %><%= image_tag "plus.png" unless category.subcategory %></td>
+          <td style="border-right: 0;"><%= link_to (image_tag "actions-open.png"), category %></td>
+          <td style="border-right: 0;"><%= link_to (image_tag "actions-edit.png"), edit_category_path(category) %></td>
+          <td><%= link_to (image_tag "actions-delete.png"), category, method: :delete, data: { confirm: 'Ололошки, точно удалить? Удаляться и все товары, которые завязаны на эту категорию. Точно?' } %></td>
         </tr>
       <% end %>
     </tbody>

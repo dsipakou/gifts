@@ -5,7 +5,7 @@
 
 <div id="catalog_inner">
 	<h2><%= @cat_name unless @cat_name == "All" %></h2>
-	<h2><%= "Последние поступления" if @cat_name == "All" %></h2>
+	<h2><%= "Недавно добавили" if @cat_name == "All" %></h2>
 	<div style="text-align: center; width=100%;"><%= paginate @items %></div>
 	<%= render 'item' %>
 

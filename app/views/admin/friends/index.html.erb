@@ -1,0 +1,28 @@
+<div class="box-header"><h1>Друзья</h1></div>
+<div class="dataTables_wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Заголовок</th>
+        <th>Ссылка на картинку</th>
+        <th>URL</th>
+        <th>Описание</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <% @friends.each do |friend| %>    
+    <tbody>
+      <tr>
+        <td><%= friend.name %></td>
+        <td><% unless friend.img.empty? %><%= image_tag friend.img %><% end %></td>
+        <td><%= friend.url %></td>
+        <td><%= friend.desc %></td>
+        <td><%= link_to (image_tag "actions-open.png"), friend %>
+        <%= link_to (image_tag "actions-edit.png"), edit_friend_path(friend) %>
+        <%= link_to (image_tag "actions-delete.png"), friend, method: :delete, data: { confirm: "Ололошки, удалить ДРУГА?????!!!" } %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+  <div class="action_bar nomargin"><%= link_to "Новый дружище", new_friend_path, class: "button small" %></div>
+</div>

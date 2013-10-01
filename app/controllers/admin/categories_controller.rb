@@ -5,7 +5,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /admin/categories
   # GET /admin/categories.json
   def index
-    @categories = Category.all
+    @categories = Category.order("name").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -76,6 +76,7 @@ class Admin::CategoriesController < ApplicationController
   # DELETE /admin/categories/1.json
   def destroy
     @category = Category.find(params[:id])
+    Category.set_subcat_to_null(params[:id])
     @category.destroy
 
     respond_to do |format|

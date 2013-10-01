@@ -10,5 +10,7 @@ class CatalogController < ApplicationController
 			@items = Kaminari.paginate_array(Item.order("created_at DESC")).page(params[:page]).per(9)
 		end
 		@cat_name ||= "All"
+
+		@main_categories = Category.get_main_categories(0)
 	end
 end

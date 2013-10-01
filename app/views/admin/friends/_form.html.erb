@@ -1,0 +1,32 @@
+<%= form_for(@friend) do |f| %>
+  <div class="column-left">
+    <% if @friend.errors.any? %>
+      <p class="warning">
+        <h2><%= pluralize(@friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+        <% @friend.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      </p>
+    <% end %>
+    <p>
+      <%= f.text_field :name, placeholder: "Заголовок" %>
+    </p>
+    <p>
+      <%= f.text_field :img, placeholder: "Ссылка на картинку" %>
+    </p>
+    <p>
+      <%= f.text_field :url, placeholder: "URL" %>
+    </p>
+  </div>
+  <div class="column-right">
+    <p>
+      <%= f.text_area :desc, placeholder: "Описание" %>
+    </p>
+  </div>
+
+  <div class="clear"></div>
+  <div class="action_bar">
+    <%= f.submit "Сохранить", class: "button blue" %>
+    <%= link_to "Назад", friends_path %>
+  </div>
+<% end %>
