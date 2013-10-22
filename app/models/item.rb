@@ -41,7 +41,7 @@ class Item < ActiveRecord::Base
 	end
 
 	def self.get_images_for_index
-		Item.where("showonmain = true")
+		Item.where("showonmain = true").shuffle
 	end
 
 	def self.desc_order

@@ -1,5 +1,6 @@
 html {
     font-family: "PT Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: "PT Sans";*/
     font-size: 14px;
 }
 
@@ -136,7 +137,7 @@ div#categories {
         margin: 5px;
         /*color: #464545;*/
         /*text-decoration: underline;*/
-        font-size: 16px;
+        font-size: 15px;
         cursor:pointer; 
         width: 100%;
         text-align: left;
@@ -196,7 +197,7 @@ div#categories {
 		margin:0;
 		padding:8px 20px;
 		text-decoration:none;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
 	}
     a:hover {
         text-decoration: none !important;
@@ -205,11 +206,11 @@ div#categories {
 }
 
 #menu {
-    @include menus(22px);
+    @include menus(28px);
 }
 
 #bottom-menu {
-    @include menus(10px);
+    @include menus(12px);
     float: right;
     border: 0;
     margin: 0;
@@ -237,6 +238,11 @@ div#categories {
     font-size: 11px;
 }
 
+#breadcrumb {
+    padding: 0 20px;
+    font-size: 14px;
+}
+
 #cat_item {
     border: 1px solid #FFF;
     border-radius: 10px;
@@ -250,7 +256,7 @@ div#categories {
     min-height: 0px;
     margin-left: 20px;
     margin-bottom: 10px;
-
+    font-size: 14px;
     background: #ececec;
     position: relative;
     .image {
@@ -318,11 +324,11 @@ a:hover {
     a {
         outline: 0;
         color: #464545;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 24px;
         font-family: 'Droid Sans',sans-serif;
         text-decoration: none;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
         background: url(arrow.gif) no-repeat 0 3px;
         padding: 0 0 0 10px;
     }
@@ -345,11 +351,13 @@ a:hover {
     background: #ededed;
     float: left; 
     margin-left: 20px;
+    margin-top: 20px;
 }
 #item-content {
     float: right;
     width: 620px;
     margin-right: 10px;
+    margin-top: 20px;
     div.item-price { margin: 10px; padding-top: 10px; border-top: 1px solid #E1E1E1; }
     div.item-share { margin: 20px; }
     div.item-desc { margin: 10px; }
@@ -362,13 +370,13 @@ div.news {
     padding: 0 20px;
     margin-right: 20px;
     position: relative;
-    width: 200px;
+    width: 230px;
     border-right: 1px solid #E1E1E1;
 }
 
 div.index {
     padding-top: 1px;
-    margin-right: 202px;
+    margin-right: 232px;
 }
 
 div.about-us

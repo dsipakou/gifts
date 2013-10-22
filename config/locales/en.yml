@@ -9,3 +9,5 @@ en:
       last: "&nbsp;&raquo;&nbsp;"
       next: "&nbsp;&rsaquo;&nbsp;"
       previous: "&nbsp;&lsaquo;&nbsp;"
+  breadcrumbs: 
+    catalog: Каталог
