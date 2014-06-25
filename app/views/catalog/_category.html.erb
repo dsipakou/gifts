@@ -4,8 +4,8 @@
 			<button><%= main_category_format(c.name) %>&nbsp;&nbsp;<img id="down" src="/assets/arrow-down.png" alt=""><img id="up" src="/assets/arrow-up.png" alt="" style="display:none;"></button>
 			<ul style="display:none;">
 				<% get_subcat(c.id).each do |sc| %>
-					<li>
-						<%= link_to sc.name, "#{catalog_url}/#{sc.id}" %>
+					<li ng-class="{ activecategory:isSelected('<%="#{sc.id}"%>') }">
+						<a href="" ng-click="loadProducts('<%= "#{catalog_url}"%>/', '<%="#{sc.id}" %>', '<%="#{sc.name}" %>')" ng-init="loadProducts('/catalog/index', '', 'Недавно добавили')"><%=sc.name%></a>
 					</li>
 				<% end %>
 			</ul>

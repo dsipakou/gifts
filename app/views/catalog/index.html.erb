@@ -1,14 +1,16 @@
-<div id="breadcrumb"><%= render_breadcrumbs %></div>
-<div id="cat_menu">
-	<h2>Категория</h2>
-	<%= render 'category' %>
-</div>
+<div  ng-controller="CatalogController">
+	<div id="breadcrumb"><%= render_breadcrumbs %></div>
+	<div id="cat_menu">
+		<h2>Категория</h2>
+		<%= render 'category' %>
+	</div>
 
-<div id="catalog_inner">
-	<h2><%= @cat_name unless @cat_name == "All" %></h2>
-	<h2><%= "Недавно добавили" if @cat_name == "All" %></h2>
-	<div style="text-align: center; width=100%;"><%= paginate @items %></div>
-	<%= render 'item' %>
-
+	<div id="catalog_inner">
+		<h2><%= @cat_name unless @cat_name == "All" %></h2>
+		<h2>{{selectedCategoryName}}</h2>
+		<div style="text-align: center; width=100%;">
+			<pagination previous-text="<" next-text=">" total-items='totalIdeas' ng-model="currentPage" ng-change="setPage(currentPage)"></pagination>
+		</div>
+		<%= render 'item' %>
+	</div>
 </div>
-<div></div>
