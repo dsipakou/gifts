@@ -1,5 +1,7 @@
 <div class="box-header"><h1>Просмотр товара</h1></div>
+
 <% if notice %><p class="warning"><%= notice %></p><% end %>
+
 <table>
   <tbody>
     <tr>
@@ -23,6 +25,18 @@
       <td><%= image_tag @item.picture3.url(:small) unless @item.picture3.url.include? "missing.png" %></td>
     </tr>
     <tr>
+      <td><strong>Артикул</strong></td>
+      <td><%= @item.article %></td>
+    </tr>
+    <tr>
+      <td><strong>Похож на товар с артикулом</strong></td>
+      <td><%= @item.similar_to %></td>
+    </tr>
+    <tr>
+      <td><strong>Название</strong></td>
+      <td><%= @item.title %></td>
+    </tr>
+    <tr>
       <td><strong>Описание</strong></td>
       <td><%= @item.desc %></td>
     </tr>
@@ -41,4 +55,3 @@
   <%= link_to 'Редактировать', edit_item_path(@item), class: "button" %>
   <%= link_to 'Назад', items_path %>
 </div>
-

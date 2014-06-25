@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502144955) do
+ActiveRecord::Schema.define(:version => 20130926092117) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(:version => 20130502144955) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.text     "desc"
+    t.text     "desc",        :limit => 16777215
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "subcategory"
   end
 
   create_table "contacts", :force => true do |t|
@@ -38,9 +39,18 @@ ActiveRecord::Schema.define(:version => 20130502144955) do
     t.string   "url3"
     t.string   "skype"
     t.string   "name"
-    t.text     "aboutus"
+    t.text     "aboutus",    :limit => 16777215
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "friends", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "desc"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "img"
   end
 
   create_table "items", :force => true do |t|
@@ -49,10 +59,12 @@ ActiveRecord::Schema.define(:version => 20130502144955) do
     t.string   "picture1"
     t.string   "picture2"
     t.string   "picture3"
-    t.text     "desc"
+    t.string   "title"
+    t.text     "desc",                  :limit => 16777215
     t.boolean  "availability"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.boolean  "showonmain"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "picture1_file_name"
     t.string   "picture1_content_type"
     t.integer  "picture1_file_size"
@@ -65,16 +77,16 @@ ActiveRecord::Schema.define(:version => 20130502144955) do
     t.string   "picture3_content_type"
     t.integer  "picture3_file_size"
     t.datetime "picture3_updated_at"
-    t.boolean  "showonmain"
-    t.string   "title"
+    t.integer  "article"
+    t.string   "similar_to"
   end
 
   create_table "news", :force => true do |t|
-    t.text     "content"
+    t.text     "content",    :limit => 16777215
     t.string   "date"
     t.boolean  "main"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "users", :force => true do |t|

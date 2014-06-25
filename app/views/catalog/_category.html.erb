@@ -1,7 +1,14 @@
-<ul>
-	<% @categories.each do |c| %>
-		<li>
-			<%= link_to c.name, "#{catalog_url}/#{c.id}" %>
-		</li>
+<div id="categories">
+	<% @main_categories.each do |c| %>
+		<div>
+			<button><%= main_category_format(c.name) %>&nbsp;&nbsp;<img id="down" src="/assets/arrow-down.png" alt=""><img id="up" src="/assets/arrow-up.png" alt="" style="display:none;"></button>
+			<ul style="display:none;">
+				<% get_subcat(c.id).each do |sc| %>
+					<li>
+						<%= link_to sc.name, "#{catalog_url}/#{sc.id}" %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
 	<% end %>
-</ul>
+</div>

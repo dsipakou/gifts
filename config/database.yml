@@ -15,7 +15,7 @@ development:
   database: gifts
   pool: 5
   username: root
-  password: password
+  password: 2m3jGNHmgy
   host: 127.0.0.1
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: gifts
   pool: 5
   username: root
-  password: password
+  password: 2m3jGNHmgy
   host: 127.0.0.1
 
 production:
@@ -38,5 +38,5 @@ production:
   database: gifts
   pool: 5
   username: root
-  password: password
+  password: 2m3jGNHmgy
   host: 127.0.0.1

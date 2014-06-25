@@ -2,9 +2,10 @@
 	<div class="left"><img src="/assets/logo2.png" alt=""></div>
 	<div class="right">
 		<ul>
-			<li>Телефон: <%= contacts.phone1 %></li>
-			<li>e-mail: <%= contacts.email1 %></li>
-			<li>skype: <%= contacts.skype %></li>
+			<% unless contacts.phone1.empty? %><li><img src="/assets/phone.png" alt="Телефон"> <span><%= contacts.phone1 %></span></li><% end %>
+			<% unless contacts.phone2.empty? %><li><img src="/assets/phone.png" alt="Телефон"> <span><%= contacts.phone2 %></span></li><% end %>
+			<% unless contacts.email1.empty? %><li><img src="/assets/email.png" alt=""> <span><%= contacts.email1 %></span></li><% end %>
+			<% unless contacts.skype.empty? %><li><img src="/assets/skype.png" alt=""> <span><%= contacts.skype %></span></li><% end %>
 		</ul>
 	</div>
 </div>

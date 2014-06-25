@@ -1,18 +1,68 @@
 html {
     font-family: "PT Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: "PT Sans";*/
     font-size: 14px;
 }
 
-
 body {
-    background-image: url(bg1.jpg);
-    background-position: center;
-    background-repeat: repeat;
+    margin:0;
+    padding:0;
+    background-position: top center;
+    background: #d8d8d8 url(noise-bg.png);
+}
 
+body, html {
+    height: auto;
+}
+
+#container-inner {
+    overflow: hidden;
 }
 h2 {
     line-height: 16px;
 }
+
+#center-panel{
+    width: 1000px;
+    float:left;
+}
+
+div#left-bg{
+    float:left;
+    /*width: calc(50% - 534px);*/
+    width: 100%;
+    background: url("bg-border-main.png") repeat;
+    height: 100%;
+    
+    
+}
+div#left-bg-border {
+    background: url("bg-left-border.png") repeat-y;
+    width: 34px;
+    float:left;
+    height: 100%;
+}
+div#right-bg{
+    background: url("bg-border-main.png") repeat;
+    /*width: calc(50% - 534px);*/
+    width: 100%;
+    float:right;
+    height: 100%;
+}
+div#right-bg-border {
+    background: url("bg-right-border.png") repeat-y;
+    width: 34px;
+    float:right;
+    height: 100%;
+}
+
+/*#left-bg, #left-bg-border, #right-bg, #right-bg-border, #center-panel {
+    padding-bottom:100000px;
+    margin-bottom:-100000px;
+    display:block;
+    min-height: 100%;
+    height: auto;
+}*/
 
 div.top {
     margin: 0 auto;
@@ -53,6 +103,13 @@ div.top {
         text-shadow: 0 1px 2px rgba(0,0,0,0.4);
         li {
             list-style:inside none;
+            vertical-align: middle;
+            span, img {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            height: 30px;
+            line-height: 30px;
         }
     }
 }
@@ -68,6 +125,31 @@ div.top {
 
 #content {
     text-align: left;
+}
+
+div#categories {
+    
+    button {
+        outline: 0;
+        background:none!important;
+        border:none; 
+        padding:0!important;
+        margin: 5px;
+        /*color: #464545;*/
+        /*text-decoration: underline;*/
+        font-size: 15px;
+        cursor:pointer; 
+        width: 100%;
+        text-align: left;
+
+        /*font-weight: bold;*/
+    }
+    div{
+        border-bottom-width:1px;
+        border-bottom-color:#EEE;
+        border-bottom-style: dashed;
+        width: 100%;
+    }
 }
 
 #contacts {
@@ -115,7 +197,7 @@ div.top {
 		margin:0;
 		padding:8px 20px;
 		text-decoration:none;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
 	}
     a:hover {
         text-decoration: none !important;
@@ -124,11 +206,11 @@ div.top {
 }
 
 #menu {
-    @include menus(22px);
+    @include menus(28px);
 }
 
 #bottom-menu {
-    @include menus(10px);
+    @include menus(12px);
     float: right;
     border: 0;
     margin: 0;
@@ -156,8 +238,14 @@ div.top {
     font-size: 11px;
 }
 
+#breadcrumb {
+    padding: 0 20px;
+    font-size: 14px;
+}
+
 #cat_item {
     border: 1px solid #FFF;
+    border-radius: 10px;
     display: inline-block;
     overflow: visible;
     vertical-align: top;
@@ -168,8 +256,8 @@ div.top {
     min-height: 0px;
     margin-left: 20px;
     margin-bottom: 10px;
-
-    background: none;
+    font-size: 14px;
+    background: #ececec;
     position: relative;
     .image {
         text-align: center;
@@ -202,6 +290,11 @@ div.top {
     }
 }
 
+.round
+{
+    border-radius: 3px;
+}
+
 .image-text-link {
 
     margin: 10px 14px 0 10px;
@@ -218,7 +311,7 @@ a:hover {
 
 
 #cat_menu {
-    background-color: #FFFFFF;
+    background-color: none;
     float: left;
     height: 100%;
     margin: 0 4px 0 0;
@@ -229,12 +322,13 @@ a:hover {
     position: relative;
     width: 200px;
     a {
+        outline: 0;
         color: #464545;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 24px;
         font-family: 'Droid Sans',sans-serif;
         text-decoration: none;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
         background: url(arrow.gif) no-repeat 0 3px;
         padding: 0 0 0 10px;
     }
@@ -243,7 +337,7 @@ a:hover {
         padding: 0;
         list-style: none;
         li {
-            padding: 0 0 0 14px;
+            padding: 0;
             display: list-item;
             text-align: -webkit-match-parent;
         }
@@ -251,13 +345,23 @@ a:hover {
 }
 
 #catalog_inner { padding-top: 1px; }
-#item-images { float: left; }
+#item-images { 
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background: #ededed;
+    float: left; 
+    margin-left: 20px;
+    margin-top: 20px;
+}
 #item-content {
-    float: left;
-    margin-left: 10px;
+    float: right;
+    width: 620px;
+    margin-right: 10px;
+    margin-top: 20px;
     div.item-price { margin: 10px; padding-top: 10px; border-top: 1px solid #E1E1E1; }
     div.item-share { margin: 20px; }
     div.item-desc { margin: 10px; }
+    div.item-art { margin: 0px; color: #777; }
 }
 
 div.news {
@@ -266,13 +370,18 @@ div.news {
     padding: 0 20px;
     margin-right: 20px;
     position: relative;
-    width: 200px;
+    width: 230px;
     border-right: 1px solid #E1E1E1;
 }
 
 div.index {
     padding-top: 1px;
-    margin-right: 202px;
+    margin-right: 232px;
+}
+
+div.about-us
+{
+    padding: 1px 20px 0 20px;
 }
 
 .item_border {
@@ -284,4 +393,5 @@ div.index {
 
 .rounded { border-radius: 10px; }
 .small-rounded { border-radius: 5px; }
+.pagination {margin-bottom: 10px;}
 

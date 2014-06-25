@@ -44,3 +44,5 @@ gem "kaminari"
 gem "cancan"
 
 gem "devise"
+
+gem "breadcrumbs_on_rails"

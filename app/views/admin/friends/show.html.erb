@@ -1,0 +1,29 @@
+<div class="box-header"><h1>Полюбуемся на друга</h1></div>
+
+<% if notice %><p class="warning"><%= notice %></p><% end %>
+
+<table>
+	<tr>
+		<td>Друга зовут</td>
+		<td><%= @friend.name %></td>
+	</tr>
+	<tr>
+		<td>Картинка друга</td>
+		<td><% unless @friend.img.empty? %><%= image_tag @friend.img, alt: @friend.name %><% end %></td>
+	</tr>
+	<tr>
+		<td>У друга сайт</td>
+		<td><%= @friend.url %></td>
+	</tr>
+	<tr>
+		<td>Что известно о друге</td>
+		<td><%= @friend.desc %></td>
+	</tr>
+</table>
+
+<div class="action_bar">
+	<%= link_to 'Редактировать', edit_friend_path(@friend), class: "button" %>
+	<%= link_to 'Назад', friends_path %>
+</div>
+
+

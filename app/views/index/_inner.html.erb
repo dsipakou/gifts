@@ -37,7 +37,7 @@
         <div class="carousel-feature">
         	<%= link_to (image_tag img.picture1.url(:index), class: "carousel-image"), "#{catalog_path}/item/#{img.id}" %>
           <div class="carousel-caption">
-            <p><%= img.desc %></p>
+            <p><%= img.title %></p>
           </div>
         </div>
         <% end %>

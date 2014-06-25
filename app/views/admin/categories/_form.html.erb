@@ -13,6 +13,10 @@
     <p>
       <%= f.text_field :name, placeholder: "Название" %>
     </p>
+    <p>
+      <%= f.label :subcategory, "Указать главную категорию" %>
+      <%= f.select :subcategory, Category.get_main_categories(params[:id]).collect {|c| [c.name, c.id]}, {:include_blank => true} %>
+    </p>
   </div>
   <div class="column-right">
     <p>
