@@ -1,4 +1,4 @@
-<html ng-app="gifts">
+<html>
 	<head>
 		<title>Мастерская "Н"</title>
 		<%= javascript_include_tag "touchTouch.jquery.js" %>
@@ -27,32 +27,22 @@
 		</script>
 	</head>
 <body>
-<table style="width:100%;height:100%;border-collapse:collapse;table-layout:fixed" cellpadding="0" cellspacing="0">
-		
-		<tbody>
-			<tr>
-				<td>
-					<div id="left-bg"></div>
-				</td>
-				<td width="34px">
-					<div id="left-bg-border"></div>
-				</td>
-				<td style="width:1000px;padding:0px;vertical-align:top;">
-					<div class="top">
-						<div id="header"><%= render 'index/header' %></div>
-						<div id="menu"><%= render 'index/navi' %></div>
-						<div id="content"><%= yield %></div>
-						<div id="footer"><%= render 'index/footer' %></div>
-					</div>
-				</td>
-				<td width="34px">
-					<div id="right-bg-border"></div>
-				</td>
-				<td>
-					<div id="right-bg"></div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+		<!--[if IE]>
+			<b>К сожалению, сайт не оптимизирован для работы с Internet Explorer</b>
+		<![endif]-->
+	<div id="container-inner">
+		<div id="left-bg"></div>
+		<div id="left-bg-border"></div>
+		<div id="center-panel">
+			<div class="top">
+				<div id="header"><%= render 'index/header' %></div>
+				<div id="menu"><%= render 'index/navi' %></div>
+				<div id="content"><%= yield %></div>
+				<div id="footer"><%= render 'index/footer' %></div>
+			</div>
+		</div>
+		<div id="right-bg"></div>
+		<div id="right-bg-border"></div>
+	</div>
 </body>
 </html>

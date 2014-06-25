@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(:version => 20130926092117) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.text     "desc",        :limit => 16777215
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "desc"
     t.integer  "subcategory"
   end
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(:version => 20130926092117) do
     t.text     "aboutus",    :limit => 16777215
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "friends", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "img"
   end
 
   create_table "friends", :force => true do |t|
@@ -77,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20130926092117) do
     t.string   "picture3_content_type"
     t.integer  "picture3_file_size"
     t.datetime "picture3_updated_at"
+    t.boolean  "showonmain"
+    t.string   "title"
     t.integer  "article"
     t.string   "similar_to"
   end

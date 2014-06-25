@@ -1,17 +1,21 @@
-<div class="item-art"><div style="float: left;"></div><% if @item.article %>Артикул: <%= @item.article %><% end %></div>
-<h2><%= @item.title %></h2>
+<div ng-controller="ItemDetailsController">
+	<div class="item-art">
+		<div style="float: left;"></div>
+		<% if @item.article %>Артикул: <%= @item.article %><% end %>
+	</div>
+	<h2><%= @item.title %></h2>
 
-<div class="item-desc"><%= @item.desc %></div>
+	<div class="item-desc"><%= @item.desc %></div>
 
-<div class="item-price"><% unless @item.price.nil? %><%= @item.price %> руб.<% end %></div>
-<div class="item-share">
-	<div id="vk_like"></div>
-		<script type="text/javascript">
-			VK.Widgets.Like("vk_like", {type: "button"});
-		</script>
+	<div class="item-price"><% unless @item.price.nil? %><%= @item.price %> руб.<% end %></div>
+	<div class="item-share">
+		<div id="vk_like"></div>
+			<script type="text/javascript">
+				VK.Widgets.Like("vk_like", {type: "button"});
+			</script>
+	</div>
+	<div id="vk_comments"></div>
+	<script type="text/javascript">
+	VK.Widgets.Comments("vk_comments", {limit: 10, width: "520", attach: "*"});
+	</script>
 </div>
-<div id="vk_comments"></div>
-<script type="text/javascript">
-VK.Widgets.Comments("vk_comments", {limit: 10, width: "520", attach: "*"});
-</script>
-

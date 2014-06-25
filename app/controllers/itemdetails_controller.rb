@@ -9,6 +9,10 @@ class ItemdetailsController < ApplicationController
 		add_breadcrumb @item.title, params[:id] unless @item.title.empty?
 
 		@similar_items = Item.similar_items(params[:id]);
+	    respond_to do |format|
+	    	format.html 
+    		format.json { render json: @item }
+    	end
 	end
 
 	
