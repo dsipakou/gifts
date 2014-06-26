@@ -39,6 +39,10 @@
 			});
 		};
 
+		$scope.isPagingVisible = function() {
+			return $scope.totalIdeas > 9;
+		}
+
         $scope.setPage = function (pageNo) {
     		$scope.currentPage = pageNo;
       		var begin = (($scope.currentPage - 1) * $scope.numPerPage),	end = begin + $scope.numPerPage;

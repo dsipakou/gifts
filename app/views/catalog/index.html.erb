@@ -8,7 +8,7 @@
 		<h2><%= @cat_name unless @cat_name == "All" %></h2>
 		<h2>{{selectedCategoryName}}</h2>
 		<div style="text-align: center; width=100%;">
-			<pagination previous-text="<" next-text=">" total-items='totalIdeas' ng-model="currentPage" ng-change="setPage(currentPage)"></pagination>
+			<pagination ng-show="isPagingVisible()" previous-text="<" next-text=">" total-items='totalIdeas' ng-model="currentPage" ng-change="setPage(currentPage)"></pagination>
 		</div>
 		<%= render 'item' %>
 	</div>
