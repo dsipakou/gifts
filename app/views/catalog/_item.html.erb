@@ -1,6 +1,6 @@
 <div style="overflow: hidden;" id="all_items">
 	<div id="cat_item" ng-repeat="item in filteredIdeas" ng-class="{item_border:hover}" ng-mouseenter="hover=true" ng-mouseleave="hover=false">
-		<div class="image"><%= link_to (image_tag "{{item.picture1.replace('original', 'catalog').replace('/assets/', '')}}", class: "image round"), "#{catalog_path}/item/{{item.id}}" %></div>
+		<div class="image"><%= link_to (image_tag "{{item.picture1.replace('original', 'catalog').replace('/assets/', '')}}", alt: "", class: "image round"), "#{catalog_path}/item/{{item.id}}" %></div>
 		<div class="desc">{{item.title}}</div>
 		<div class="price" ng-hide="item.price == null">{{item.price}}руб.</div>
 		<div class="moredetails"><%= link_to "Детали >>", "#{catalog_path}/item/{{item.id}}" %></div>
