@@ -1,5 +1,5 @@
 <script>
-	$(document).ready(function() {
+  $(document).ready(function() {
     var carousel = $("#carousel").featureCarousel({
         // include options like this:
         // (use quotes only for string values, and no trailing comma after last option)
@@ -28,14 +28,14 @@
         $(this).removeClass("item_border");
         $(this).find(".moredetails").hide();
       });
-	});
+  });
 </script>
 <div class="carousel-container">
 
       <div id="carousel">
-      	<% @images.each do |img| %>
+        <% @images.each do |img| %>
         <div class="carousel-feature">
-        	<%= link_to (image_tag img.picture1.url(:index), class: "carousel-image"), "#{catalog_path}/item/#{img.id}" %>
+          <%= link_to (image_tag img.picture1.url(:index), class: "carousel-image"), "#{catalog_path}/item/#{img.id}" %>
           <div class="carousel-caption">
             <p><%= img.title %></p>
           </div>
@@ -62,7 +62,7 @@
   </div>
 
   <div class="index">
-    <h2>Главная</h2>
+    <h2>Главнаяя</h2>
     <% @news.each do |n| %>
       <%= n.content if n.main %>
     <% end %>
