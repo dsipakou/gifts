@@ -54,7 +54,7 @@
     <% @news.each do |n| %>
       <% unless n.main %>
         <%= n.date %>
-        <%= n.content %>
+        <%= n.content.html_safe %>
         <br />
         <br />
       <% end %>

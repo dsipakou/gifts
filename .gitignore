@@ -106,3 +106,6 @@
 
 # Ignore content files
 public/assets/
+
+# Ignore DB settings
+config/database.yml
