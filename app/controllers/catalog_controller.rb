@@ -10,11 +10,9 @@ class CatalogController < ApplicationController
 			@cat_name = Category.find(params[:id]).name
 
 			add_breadcrumb @cat_name, params[:id]
-			#@items = Kaminari.paginate_array(Item.by_category(params[:id])).page(params[:page]).per(9)
 			@items = Item.by_category(params[:id])
 		else
-			#@items = Kaminari.paginate_array(Item.order("created_at DESC")).page(params[:page]).per(9)
-			@items = Item.order("created_at DESC")
+			@items = Item.order("created_at DESC").last(15)
 		end
 		@cat_name ||= "All"
 
